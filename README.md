@@ -1,13 +1,9 @@
 # OIBSIP
-LEVEL-2 FOR WEB DEVELOPMENT AND DESIGNING
 
 This Repository contains 3 task 
 
-here, I completed Level 2 of the Oasis InfoByte SIP Internship Task 
-I chose Level 2 from Web Development and Designing.
-contains Three Tasks 
 **Task 1:**
-         CALCULATOR 
+         CALCULATOR   (  Visit Link:  https://oibsip-zeta.vercel.app/   )
 It takes a little skill to create a calculator with basic
 mathematical functionalities using CSS, HTML, and
 JavaScript. Calculators require an interactive interface to
@@ -20,7 +16,7 @@ calculator include event listeners, if-else statements,
 operators, loops, etc.
  
 **Task 2:**
-         TRIBUTE PAGE 
+         TRIBUTE PAGE   ( visit Link:  https://oibsip-xqku.vercel.app/  )
 With a basic understanding of HTML and CSS, you can easily
 create a page for someone you admire. Write about what
 you adore in the person, add images, give an appealing
@@ -28,7 +24,7 @@ layout, and use paragraphs appropriately. You can also play
 around with different font styles and background colors.
 
 **Task 3:**
-             A BASIC TO-DO WEB APP
+             A BASIC TO-DO WEB APP  ( Visit Link:  https://oibsip-8hf3.vercel.app/  )
 
 Develop a basic to-do app that enables a user to add daily tasks.
 The to-do web app must allow users to add new items to a list, and items
