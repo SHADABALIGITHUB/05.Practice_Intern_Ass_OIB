@@ -1,35 +1,129 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useEffect, useState } from 'react'
 
-function App() {
-  const [count, setCount] = useState(0)
+import {fetchFromBackend} from './lib/api.axios'
+
+type UserData={
+id: number,
+first_name:string,
+last_name?: string,
+email:string,
+gender?: string
+photo_url?: string
+
+}
+const App:React.FC= () => {
+
+  const [user,setUser]=useState<UserData[]|null>(null);
+  
+
+
+   useEffect(()=>{
+
+        const fetchdata=async()=>{
+
+            try{
+
+              const response=await fetchFromBackend('/api/user');
+              setUser(response);
+              console.log(response);
+
+            }
+            catch(err){
+              console.error('Error fetching data:', err);
+
+            }
+
+        }
+        fetchdata();
+        return;
+
+        
+
+
+   },[])
+
 
   return (
+
+
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+
+        <table>
+
+          <thead>
+
+            <tr>
+              <th>index</th>
+              <th> Name </th>
+              <th> Last Name</th>
+              <th> Email </th>
+              <th> Gender </th>
+              <th> Images </th>
+              <th> Select User</th>
+            </tr>
+
+          </thead>
+
+          <tbody>
+
+            
+              {
+              user?.map((item)=>(
+              <tr> 
+
+              <td>${item.id}</td>
+              <td>{item?.first_name} </td>
+              <td>{item?.last_name} </td>
+              <td>{item?.email} </td>
+              <td>{item?.gender} </td>
+              <td> <img className='w-28 h-28' src={item?.photo_url?.replace(/\/x(\d+)/, `/$1x$1`)} alt="N image" /> </td>
+              <td><button> Slected details </button></td>
+
+
+              </tr>
+              ))
+              }
+
+              
+              
+
+
+
+           
+            
+            
+           
+              
+
+
+
+     </tbody>
+
+          
+
+           
+
+           
+
+          
+        </table>
+
+      
     </>
+
   )
+
+
+
+
+
+
+
+
+
 }
+
+   
+  
 
 export default App
